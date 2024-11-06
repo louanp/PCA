@@ -4,21 +4,21 @@
 #include "sequence.h"
 static int Ite;
 static char Sequence[Lg_N_gramme];
-
+static char *Mot;
 /*****************************************/
 // initialisation de du tableaux circulaire 
 //
 /*****************************************/
 void sequence_initialize( struct strhash_table * ht )
 {
-  const char motVide =" ";
+  const char *motVide = " " ;
   char *motVideHash = strhash_wordAdd(ht, motVide);
   int i;
   for(i = 0; i<Lg_N_gramme; i++)
   {
     Sequence[i] = *motVideHash;
   }
-
+   sequence_itStart();
 }
 /*****************************************/
 // Initiailise l'iterateur au premier mot
@@ -68,10 +68,27 @@ int sequence_itHasNext( void )
 /*****************************************/
 void sequence_addWord( const char * word, struct strhash_table * ht )
 {
-    char *motVideHash = strhash_wordAdd(ht, word);
+   Mot= strhash_wordAdd(ht, word);
 }
 /*****************************************/
-//
-//
+// retourne le nouveaux mot qui entreras 
+// dans le N-gramme 
 /*****************************************/
+const char *  sequence_nextWord( void )
+{
+    
+    if(Mot != NULL)
+    {
+        return Mot;
+    }
+    else return '.';
+}
+/*****************************************/
+// avance le N-gramme courant pour integrer
+// le nouveaux mots ecrit
+/*****************************************/
+void sequence_progress( void )
+{
+
+}
 #endif
