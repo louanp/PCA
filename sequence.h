@@ -9,6 +9,7 @@
 #ifndef _SEQUENCE_H_
 #define _SEQUENCE_H_
 #include "hash.h"
+#include <stdio.h>
 
 // nombre de mots dans les N-grammes
 enum {                                        
