@@ -89,6 +89,6 @@ const char *  sequence_nextWord( void )
 /*****************************************/
 void sequence_progress( void )
 {
-
+    
 }
 #endif
