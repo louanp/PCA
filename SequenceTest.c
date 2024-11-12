@@ -3,7 +3,7 @@
 
 int main()
 {
-    
+    const char *motChaine;
     // Déclaration de la table de hash
     struct strhash_table * ht;
     if ((ht = strhash_create(1000))==NULL)
@@ -21,16 +21,32 @@ int main()
     sequence_addWord("je",ht);sequence_print();
     sequence_addWord("m'appelle",ht);sequence_print();
     sequence_addWord("louan",ht);sequence_print();
+    // test du print chaine de cractère 
+    printf("-------------------------------------------------\n");
+    printf("sequence sous forme de chaine de caractère: \n");
+    motChaine=sequence_printInTab();
+    printf("%s\n",motChaine);
+    // changement de mot
+    printf("-------------------------------------------------\n");
+    printf("simulation de changement de mot dans ma sequence : \n");
     sequence_addWord("j'ai",ht);sequence_print();
     sequence_addWord("21",ht);sequence_print();
     sequence_addWord("ans",ht);sequence_print();
-    
+    // test du print chaine de cractère 
+    printf("-------------------------------------------------\n");
+    printf("sequence sous forme de chiane de caractère: \n");
+    motChaine=sequence_printInTab();
+    printf("%s\n",motChaine);
     // test méthode sequence_itNext()
     printf("-------------------------------------------------\n");
     printf("Renvois le mot corespondant a l'ite et avance l'ite : \n");
     printf("%s\n",sequence_itNext());
     sequence_print();
     printf("-------------------------------------------------\n");
-    printf(" : \n");
+    printf("Renvois le mot corespondant a l'ite et avance l'ite : \n");
+    printf("%s\n",sequence_itNext());
+    sequence_print();
+    printf("-------------------------------------------------\n");
+    
     
 }
