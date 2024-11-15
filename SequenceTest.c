@@ -30,13 +30,19 @@ int main()
     printf("-------------------------------------------------\n");
     printf("simulation de changement de mot dans ma sequence : \n");
     sequence_addWord("j'ai",ht);sequence_print();
-    sequence_addWord("21",ht);sequence_print();
-    sequence_addWord("ans",ht);sequence_print();
+    sequence_addWord("un",ht);sequence_print();
+    sequence_addWord("chat",ht);sequence_print();
     // test du print chaine de cractère 
     printf("-------------------------------------------------\n");
     printf("sequence sous forme de chiane de caractère: \n");
     motChaine=sequence_printInTab();
     printf("%s\n",motChaine);
+    // test des erreurs 
+    printf("-------------------------------------------------\n");
+    printf("test des possibles erreur: \n");
+    sequence_addWord("",ht);
+    sequence_addWord("à",ht);sequence_print();
+    sequence_addWord(" ",ht);sequence_print();
     // test méthode sequence_itNext()
     printf("-------------------------------------------------\n");
     printf("Renvois le mot corespondant a l'ite et avance l'ite : \n");
@@ -47,6 +53,7 @@ int main()
     printf("%s\n",sequence_itNext());
     sequence_print();
     printf("-------------------------------------------------\n");
-    
+    // faire des test sur les erreurs !!!!!!!!
+
     
 }

@@ -4,9 +4,11 @@
 #include "sequence.h"
 #include <string.h>
 #include <stdlib.h>
+#include <string.h>
 static int Ite;
 static char *Sequence[Lg_N_gramme];
 static char *Mot;
+static int position;
 /*****************************************/
 // initialisation du tableaux circulaire 
 //
@@ -33,6 +35,7 @@ void sequence_initialize( struct strhash_table * ht )
 void sequence_itStart( void )
 {
     Ite = 0;
+    position = 0;
 
 }
 /*****************************************/
@@ -74,9 +77,16 @@ int sequence_itHasNext( void )
 /*****************************************/
 void sequence_addWord( const char * word, struct strhash_table * ht )
 {
-    Mot= strhash_wordAdd(ht, word);
-    sequence_progress();
-    Sequence[Ite] = Mot;
+    if(strcmp(word,"")>0 && strcmp(word, "") !=NULL)
+    {
+        Mot= strhash_wordAdd(ht, word);
+        sequence_progress();
+        Sequence[position] = Mot;
+    }
+    else 
+    {
+        printf("le mot rentrer n'est pas correct\n");
+    }
 
 
 }
@@ -100,8 +110,9 @@ const char * sequence_nextWord( void )
 void sequence_progress( void )
 {
     //Ite = (Ite+1) % Lg_N_gramme;
+    position = Ite;
     sequence_itNext();
-
+   
 }
 /*****************************************/
 // affiche le N-gramme courant, 
